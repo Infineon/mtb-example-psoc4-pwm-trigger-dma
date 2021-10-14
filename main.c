@@ -1,29 +1,30 @@
 /******************************************************************************
 * File Name:   main.c
 *
-* Description: This is the source code for the CE231732 PSoC4 MCU: PWM Triggering a DMA Channel
-*              Example for ModusToolbox.
+* Description: This is the source code for the CE231732 PSoC4 MCU: PWM 
+*              triggering a DMA Channel Example for ModusToolbox.
 *
 * Related Document: See README.md
 *
 *
 *******************************************************************************
-* (c) 2020, Cypress Semiconductor Corporation. All rights reserved.
-*******************************************************************************
-* This software, including source code, documentation and related materials
-* ("Software"), is owned by Cypress Semiconductor Corporation or one of its
-* subsidiaries ("Cypress") and is protected by and subject to worldwide patent
-* protection (United States and foreign), United States copyright laws and
-* international treaty provisions. Therefore, you may use this Software only
-* as provided in the license agreement accompanying the software package from
-* which you obtained this Software ("EULA").
+* Copyright 2020-2021, Cypress Semiconductor Corporation (an Infineon company) or
+* an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
+* This software, including source code, documentation and related
+* materials ("Software") is owned by Cypress Semiconductor Corporation
+* or one of its affiliates ("Cypress") and is protected by and subject to
+* worldwide patent protection (United States and foreign),
+* United States copyright laws and international treaty provisions.
+* Therefore, you may use this Software only as provided in the license
+* agreement accompanying the software package from which you
+* obtained this Software ("EULA").
 * If no EULA applies, Cypress hereby grants you a personal, non-exclusive,
-* non-transferable license to copy, modify, and compile the Software source
-* code solely for use in connection with Cypress's integrated circuit products.
-* Any reproduction, modification, translation, compilation, or representation
-* of this Software except as specified above is prohibited without the express
-* written permission of Cypress.
+* non-transferable license to copy, modify, and compile the Software
+* source code solely for use in connection with Cypress's
+* integrated circuit products.  Any reproduction, modification, translation,
+* compilation, or representation of this Software except as specified
+* above is prohibited without the express written permission of Cypress.
 *
 * Disclaimer: THIS SOFTWARE IS PROVIDED AS-IS, WITH NO WARRANTY OF ANY KIND,
 * EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT, IMPLIED
@@ -34,10 +35,15 @@
 * not authorize its products for use in any products where a malfunction or
 * failure of the Cypress product may reasonably be expected to result in
 * significant property damage, injury or death ("High Risk Product"). By
-* including Cypress's product in a High Risk Product, the manufacturer of such
-* system or application assumes all risk of such use and in doing so agrees to
-* indemnify Cypress against all liability.
+* including Cypress's product in a High Risk Product, the manufacturer
+* of such system or application assumes all risk of such use and in doing
+* so agrees to indemnify Cypress against all liability.
 *******************************************************************************/
+
+
+/*******************************************************************************
+ * Include header files
+ ******************************************************************************/
 
 #include "cy_pdl.h"
 #include "cybsp.h"
@@ -61,13 +67,13 @@ void arrayInit(void);
 
 /* This array holds all the compare values that will be loaded onto the PWM
 *  to create the breathing pattern */
-uint32 compareVal[ARRAY_SIZE];
+uint32_t compareVal[ARRAY_SIZE];
 
 /*******************************************************************************
 * Function Name: main
 ********************************************************************************
 * Summary:
-* This is the main function for CM4 CPU. It does...
+* This is the main function for CM0 Plus CPU. It does the following functions -
 *    1. Generate the compare array
 *    2. Initialize and enable the PWM block
 *    3. Connect PWM overflow output trigger to DMA input trigger
@@ -154,7 +160,7 @@ void arrayInit(void)
     /* Creating the array with increasing and decreasing compare value to generate the breathing */
     compareVal[i] = 0;
 
-    for(i=0u; i < ARRAY_SIZE>>1; i++)
+    for(i=1u; i < ARRAY_SIZE>>1; i++)
     {
         /* Increase compare values */
         compareVal[i] = compareVal[i-1u] + BREATHING_CHANGE;
