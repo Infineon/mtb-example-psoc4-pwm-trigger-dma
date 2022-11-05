@@ -1,14 +1,14 @@
 /******************************************************************************
 * File Name:   main.c
 *
-* Description: This is the source code for the CE231732 PSoC4 MCU: PWM 
+* Description: This is the source code for the CE231732 PSoC 4 MCU: PWM
 *              triggering a DMA Channel Example for ModusToolbox.
 *
 * Related Document: See README.md
 *
 *
 *******************************************************************************
-* Copyright 2020-2021, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2020-2022, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
